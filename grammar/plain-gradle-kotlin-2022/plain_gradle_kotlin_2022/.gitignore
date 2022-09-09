@@ -1,4 +1,4 @@
 .idea
+.idea/*.xml
 build
 .gradle
-.idea/*.xml
