@@ -34,7 +34,7 @@ data 클래스의 단점은 모든 필드를 equals(), hashCode() 화 하면 조
 
 <br>
 
-# equals()
+# equals(), hashCode()
 
 ## equals() 재정의를 하지 않으면?
 
@@ -90,6 +90,156 @@ false
 
 ## kotlin data 클래스의 equals(), hashCode()
 
-
+equals() 메서드를 재정의할 때는 반드시 hashCode() 를 재정의해야 한다. (JVM 언어 공통사항)
 
 <br>
+
+예를 들면 Person 타입 객체 A, B 가 있을때, A.equals(B) == true 이면, A 의 hashCode, B의 hashCode가 모두 같아야 한다.<br>
+
+만약 객체 두개의 비교 결과 equals 의 결과값은 true 인데, 두 객체의 hashCode가 서로 다르다면, HashMap, HashSet 과 같은 자료구조에서는 정상적으로 동작하지 못한다.<br>
+
+(hashCode가 다른 객체가 equals 는 true인상태)<br>
+
+<br>
+
+> 예제1) equals()를 재정의했지만, hashCode()를 재정의하지 않은 경우
+
+```kotlin
+class Person1(val name: String, val age: Int){
+    override fun equals(other: Any?): Boolean {
+        if(this === other) return true
+        if(javaClass != other?.javaClass) return false
+
+        other as Person1
+
+        if(name != other.name) return false
+        if(age != other.age) return false
+
+        return true
+    }
+}
+
+fun main(){
+    val person11 = Person1(name = "Great", age = 31)
+    val person12 = Person1(name = "Great", age = 31)
+
+    println(person11 == person12)   // true
+
+    val set = hashSetOf(person11)
+    println(set.contains(person12)) // false
+}
+```
+
+<br>
+
+출력결과
+
+```plain
+true
+false
+```
+
+<br>
+
+출력결과를 해석해보면 이렇다. 먼저 아래의 구문을 보자.
+
+```kotlin
+println(person11 == person12) // true
+```
+
+<br>
+
+equals() 메서드를 재정의했기에, `name`, `age` 필드에 대한 동치성 검사를 수행하도록 했기 때문에 두 객체가 논리적으로 같은지를 체크하는 것이 가능하다.<br>
+
+하지만, hashCode() 하지 않았다. 따라서 java.lang.Object 의 hashCode()를 사용하게 되는데, hashCode() 가 생성하는 hashCode 는 서로 다르다.<br>
+
+```kotlin
+val set = hashSetOf(person11)
+println(set.contains(person12))
+```
+
+`person11` 과 `person12` 의 hashCode 가 서로 다르기 때문에 `HashSet` 내에 들어간 `person11` , `person12` 은 서로 다른 것으로 인식된다.<br>
+
+<br>
+
+> 예제 2) equals(), hashCode() 를 재정의할 경우
+
+클래스 `Person2` 에 equals() 메서드, hashCode() 를 모두 재정의해줬다.
+
+```kotlin
+class Person2(val name: String, val age: Int){
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Person2
+
+        if (name != other.name) return false
+        if (age != other.age) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + age
+        return result
+    }
+}
+```
+
+<br>
+
+`name` , `age`  에 대해서 의미가 부여된 hashCode가 생성되도록 hashCode() 메서드를 재정의했다. 이 hashCode()를 기반으로 `person21` , `person22` 가 HashSet 안에서 같은 객체로 인식되는지 테스트하는 아래의 코드를 보자.<br>
+
+```kotlin
+fun test2(){
+    val person21 = Person2(name = "Great", age = 31)
+    val person22 = Person2(name = "Great", age = 31)
+
+    println(person21 == person22)
+
+    val set = hashSetOf(person21)
+    println(set.contains(person22))
+}
+```
+
+<br>
+
+위의 코드를 실행시킨 결과는 아래와 같다.
+
+```plain
+true
+true
+```
+
+<br>
+
+# data 클래스를 사용
+
+<br>
+
+# data 클래스의 부가적인 함수들
+
+<br>
+
+## toString()
+
+<br>
+
+## copy()
+
+<br>
+
+## componentN()
+
+<br>
+
+
+
+
+
+
+
+
+
