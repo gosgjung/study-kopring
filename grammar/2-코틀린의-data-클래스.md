@@ -88,7 +88,7 @@ false
 
 <br>
 
-## kotlin data 클래스의 equals(), hashCode()
+## kotlin 일반 클래스의 equals(), hashCode()
 
 equals() 메서드를 재정의할 때는 반드시 hashCode() 를 재정의해야 한다. (JVM 언어 공통사항)
 
@@ -215,7 +215,7 @@ true
 
 <br>
 
-# data 클래스를 사용
+# data 클래스의 equals, hashCode
 
 <br>
 
