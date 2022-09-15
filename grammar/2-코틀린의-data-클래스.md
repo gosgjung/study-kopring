@@ -215,15 +215,81 @@ true
 
 <br>
 
-# data 클래스의 equals, hashCode
+# data 클래스의 equals(), hashCode()
+
+data 키워드를 붙여서 선언한 data 클래스는 자동으로 `hashCode()` , `equals()` 가 추가된다. (내장되어있다.)
+
+```kotlin
+fun test3(){
+    val person31 = Person(name = "Great", age = 33)
+    val person32 = Person(name = "Great", age = 33)
+
+    println(person31 == person32)
+
+    val set = hashSetOf(person31)
+    println(set.contains(person32))
+}
+```
+
+<br>
+
+테스트
+
+```plain
+true
+true
+```
 
 <br>
 
 # data 클래스의 부가적인 함수들
 
+data 클래스는 `toString()` , `copy()` , `componentN()` 과 같은 부가적으로 제공한다. 아래에서부터는 `toString()`, `copy()` , `componentN()` 에 대해서 정리<br>
+
 <br>
 
 ## toString()
+
+data 클래스가 아닌 일반 클래스 사용시 toString() 을 직접 재정의하지 않으면, `java.lang.Object` 의 toString() 을 사용하게 된다. 
+
+```kotlin
+class Book1(val name : String, val price : BigDecimal)
+
+fun test4(){
+    val book : Book1 = Book1(name = "주식공부 5일 완성", BigDecimal.valueOf(12600))
+    println(book)
+}
+```
+
+<br>
+
+출력결과
+
+```plain
+Book1@2d98a335
+```
+
+<br>
+
+이것을 data 클래스를 사용하는 코드로 바꿔서 결과를 확인해보면 아래와 같다.
+
+```kotlin
+data class Book2(val name : String, val price : BigDecimal)
+fun test5(){
+    val book = Book2(name = "주식공부 5일 완성", BigDecimal.valueOf(12600))
+    println(book)
+}
+```
+
+<br>
+
+출력결과
+
+```plain
+Book2(name=주식공부 5일 완성, price=12600)
+```
+
+자동으로 toString() 이 포함되어 있음을 볼수 있다.<br>
 
 <br>
 
