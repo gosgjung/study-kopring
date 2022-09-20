@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a07345ee-75b1-4df8-9982-58b9201aaefd" name="Changes" comment="" />
+    <list default="true" id="a07345ee-75b1-4df8-9982-58b9201aaefd" name="Changes" comment="커밋 안되있던것 커밋">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/external/csv/us_stocks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,21 +20,57 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Script" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2EVrlo1ZLj6hKo4whOiXxHDkJpg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Kotlin.Data_class_try1Kt">
+    <configuration name="Collections_try1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Collections_try1Kt" />
+      <module name="plain_gradle_kotlin_2022.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Data_class_try1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Data_class_try1Kt" />
+      <module name="plain_gradle_kotlin_2022.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.Data_class_try1Kt" />
+        <item itemvalue="Kotlin.Collections_try1Kt" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -38,9 +79,54 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1662691751211</updated>
-      <workItem from="1662691752928" duration="1000" />
+      <workItem from="1662691752928" duration="12881000" />
+      <workItem from="1662973240194" duration="15000" />
+      <workItem from="1663052519212" duration="729000" />
+      <workItem from="1663158435928" duration="3276000" />
+      <workItem from="1663200568280" duration="2803000" />
+      <workItem from="1663276358165" duration="305000" />
+      <workItem from="1663656247952" duration="1540000" />
     </task>
+    <task id="LOCAL-00001" summary="gitignore">
+      <created>1662729476260</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662729476260</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignore">
+      <created>1662729505056</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662729505056</updated>
+    </task>
+    <task id="LOCAL-00003" summary="코틀린 스터디 #1&#10;= 코틀린의 컬렉션 공부&#10;= 아직 예제만 받아적었다. 몇일 내로 문서로 따로 정리해둬야 한다. 잠을 줄일까?">
+      <created>1662729599357</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662729599357</updated>
+    </task>
+    <task id="LOCAL-00004" summary="gitignore">
+      <created>1662730175026</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662730175026</updated>
+    </task>
+    <task id="LOCAL-00005" summary="gitignore">
+      <created>1662730339547</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662730339547</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -52,5 +138,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="코틀린 스터디 #1&#10;= 코틀린의 컬렉션 공부&#10;= 아직 예제만 받아적었다. 몇일 내로 문서로 따로 정리해둬야 한다. 잠을 줄일까?" />
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="커밋 안되있던것 커밋" />
+    <option name="LAST_COMMIT_MESSAGE" value="커밋 안되있던것 커밋" />
   </component>
 </project>
