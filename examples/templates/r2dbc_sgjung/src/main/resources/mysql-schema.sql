@@ -7,8 +7,11 @@ create table collector.book
 (
     book_id    bigint auto_increment
         primary key,
-    author_id    bigint      null,
+    name        varchar(30)      null,
     price        bigint      null
 );
 
+commit;
+
+INSERT INTO collector.book (book_id, price, name) VALUES (1, 1000, '스포츠');
 commit;

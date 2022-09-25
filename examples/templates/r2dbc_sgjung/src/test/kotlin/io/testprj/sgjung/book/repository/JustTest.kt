@@ -1,4 +1,4 @@
-package io.testprj.sgjung.payment.repository
+package io.testprj.sgjung.book.repository
 
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
