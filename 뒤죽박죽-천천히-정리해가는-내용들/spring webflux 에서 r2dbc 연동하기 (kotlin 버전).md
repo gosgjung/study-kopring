@@ -24,6 +24,18 @@ WebFlux 에서도 컨트롤러 어드바이스를 적용할 수 있는데 여기
 
 <br>
 
+# 참고하면 유용한 자료들
+
+- spring r2dbc 공식 자료
+  - [docs.spring.io/spring-data](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/)
+- 세번째 문서 쯤에서 아마도 시퀀스 테이블을 만드는 것에 대해서 정리할 예정이다. 그런데 아무래도 나중에 그 자료를 까먹고 못볼것 같아서 여기에 메모로 남겨두기로 했다.
+  - Mysql 에서 시퀀스 기능을 사용하는 방법
+    - https://proudin.tistory.com/entry/MySql%EC%97%90%EC%84%9C-Sequence-%EA%B8%B0%EB%8A%A5%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95 
+
+
+
+<br>
+
 # 프로젝트 다운로드
 
 프로젝트의 기본 의존성은 아래와 같이 지정해줬다.<br>
