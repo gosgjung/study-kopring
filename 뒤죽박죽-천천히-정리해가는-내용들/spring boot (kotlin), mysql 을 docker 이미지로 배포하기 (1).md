@@ -16,9 +16,23 @@ kotllin 이라고 해서 gradle 빌드가 뭔가 달라지는 것은 아니다. 
 
 # 참고자료
 
+오늘 작성한 예제는 [gitlab.com/soongood/study-kopring](https://gitlab.com/soongood/study-kopring/-/tree/main/%EB%92%A4%EC%A3%BD%EB%B0%95%EC%A3%BD-%EC%B2%9C%EC%B2%9C%ED%9E%88-%EC%A0%95%EB%A6%AC%ED%95%B4%EA%B0%80%EB%8A%94-%EB%82%B4%EC%9A%A9%EB%93%A4/springwebflux-kopring-202209/kopring_webflux_202209) 에 있다.<br>
 
+아래는 참고했던 자료다.<br>
 
+- [Spring Boot Docker 컨테이너 배포 (With Gradle)](https://inma.tistory.com/148)
+- [Docker - Spring Boot Application Docker 로 배포하기 및 MySQL 연동](https://galid1.tistory.com/726)
+- [Docker- Docker network 란? (Docker Network 사용예제)](https://galid1.tistory.com/723)
+- [github/soon-good/docker-scripts](https://github.com/soon-good/docker-scripts/blob/develop/docker-mysql/docker-mysql-start.sh)
 
+<br>
+
+참고했던 책
+
+- [스프링 마이크로 서비스 코딩 공작소](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791140700448&orderClick=LEa&Kc=)
+- 알고보니 책에 이미 다 나와있던 내용이었다.
+
+<br>
 
 # docker 네트워크 생성
 
