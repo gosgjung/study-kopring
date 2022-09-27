@@ -1,0 +1,13 @@
+테스트 용으로 직접 해보는 용도의 명령어들...
+
+# docker network
+docker network create network-test
+
+# mysql-test
+docker container run --rm -d -p 13306:3306 --name mysql-test --network network-test -e MYSQL_USER=collector -e MYSQL_PASSWORD=1111 -e MYSQL_DATABASE=collector -e MYSQL_ROOT_PASSWORD=1111 -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+# kopring-test
+docker container run --rm -d -p 18080:8080 --name kopring-test --network network-test kopring-test/kopring-app-test:0.0.1
+
+앱 구동 후 터미널 접속해서 확인하기
+docker container run -it --rm -d -p 18080:8080 --name kopring-test --network network-test kopring-test/kopring-app-test:0.0.1 bash

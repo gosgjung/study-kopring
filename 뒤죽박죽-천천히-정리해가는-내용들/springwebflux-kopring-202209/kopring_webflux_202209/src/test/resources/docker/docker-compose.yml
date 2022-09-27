@@ -7,7 +7,7 @@ services:
     container_name: mysql-test
     networks:
       - default
-      - test_network
+      - network-test
     ports:
       - "13306:3306"
     environment:
@@ -21,6 +21,15 @@ services:
       - --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./init/:/docker-entrypoint-initdb.d/
+  kopring-app-test:
+    image: kopring-test/kopring-app-test:0.0.1
+    restart: always
+    container_name: kopring-test
+    networks:
+      - default
+      - network-test
+    ports:
+      - "18080:8080"
 networks:
-  test_network:
+  network-test:
     driver: bridge
