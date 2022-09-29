@@ -1,4 +1,4 @@
-package io.testprj.kopring_webflux.book.application.bookprocessor
+package io.testprj.kopring_webflux.book.application.booknamechecker
 
 import io.testprj.kopring_webflux.book.application.BookNameChecker
 import io.testprj.kopring_webflux.global.exception.NoSuchBookExistException

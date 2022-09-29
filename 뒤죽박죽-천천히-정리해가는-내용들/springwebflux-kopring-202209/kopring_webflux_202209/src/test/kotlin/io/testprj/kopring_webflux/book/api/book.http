@@ -1,2 +1,3 @@
-GET http://localhost:8080/book/test
+# /book?name={name} 테스트
+GET http://localhost:8080/book?name=보라빛향기
 Content-Type: application/json

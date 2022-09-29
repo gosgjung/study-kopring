@@ -1,14 +1,16 @@
 package io.testprj.kopring_webflux.global.exception
 
+import io.testprj.kopring_webflux.global.code.ErrorCode
+
 sealed class ServerException(
     val code : Int,
     override val message: String,
 ) : RuntimeException(message)
 
 data class ThatIsNotABookException(
-    override val message: String = "책이 아니잖아요!!"
-) : ServerException(40010, message)
+    override val message: String = ErrorCode.THAT_IS_NOT_A_BOOK.errorMessage
+) : ServerException(ErrorCode.THAT_IS_NOT_A_BOOK.errorCode, message)
 
-data class NotExistBookException(
-    override val message: String = "존재하지 않는 책입니다요"
-) : ServerException(40010, message)
+data class NoSuchBookExistException(
+    override val message: String = ErrorCode.NO_SUCH_BOOK_EXIST.errorMessage
+) : ServerException(ErrorCode.NO_SUCH_BOOK_EXIST.errorCode, message)

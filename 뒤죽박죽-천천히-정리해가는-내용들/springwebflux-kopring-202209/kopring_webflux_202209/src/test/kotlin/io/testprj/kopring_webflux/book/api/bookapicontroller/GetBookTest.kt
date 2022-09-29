@@ -1,10 +1,10 @@
 package io.testprj.kopring_webflux.book.api.bookapicontroller
 
 import io.testprj.kopring_webflux.book.api.BookApiController
-import io.testprj.kopring_webflux.book.application.BookProcessor
+import io.testprj.kopring_webflux.book.application.BookNameChecker
 import io.testprj.kopring_webflux.config.GlobalExceptionHandlerConfig
+import io.testprj.kopring_webflux.global.code.ErrorCode
 import io.testprj.kopring_webflux.global.exception.ErrorResponse
-import io.testprj.kopring_webflux.global.exception.ThatIsNotABookException
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -22,7 +22,7 @@ import org.springframework.test.web.reactive.server.WebTestClient
 ], includeFilters = [
     ComponentScan.Filter(
         type = FilterType.ASSIGNABLE_TYPE,
-        classes = [BookProcessor::class, GlobalExceptionHandlerConfig::class]
+        classes = [BookNameChecker::class, GlobalExceptionHandlerConfig::class]
     )
 ])
 class GetBookTest {
@@ -45,7 +45,7 @@ class GetBookTest {
 
         Assertions
             .assertThat(body.returnResult().responseBody?.errorMessage)
-            .isEqualTo("책이 아니잖아요!!")
+            .isEqualTo(ErrorCode.THAT_IS_NOT_A_BOOK.errorMessage)
 
         println("ErrorResponse >>> ${body.returnResult().responseBody?.errorMessage}")
     }
