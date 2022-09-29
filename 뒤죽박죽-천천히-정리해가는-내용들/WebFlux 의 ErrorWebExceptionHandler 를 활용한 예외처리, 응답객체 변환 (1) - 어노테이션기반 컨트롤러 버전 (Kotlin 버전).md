@@ -8,6 +8,10 @@ WebFlux 에서는 ErrorWebExchangHandler로 비슷한 역할을 수행할 수 �
 
 일단 정리 시작!!! 고고<br>
 
+> 다른 내용들을 공부하다 다시 돌아와서 봣는데, 코드가 너무 지저분하다.. 코드를 조금 더 정리해서 내일 오후 중으로 다시 정리 예정!!! ㅠㅠ
+
+<br>
+
 # 예제코드
 
 - [gitlab/soongood/study-kopring/ ... ](https://gitlab.com/soongood/study-kopring/-/tree/main/%EB%92%A4%EC%A3%BD%EB%B0%95%EC%A3%BD-%EC%B2%9C%EC%B2%9C%ED%9E%88-%EC%A0%95%EB%A6%AC%ED%95%B4%EA%B0%80%EB%8A%94-%EB%82%B4%EC%9A%A9%EB%93%A4/springwebflux-kopring-202209/kopring_webflux_202209/src) <br>
