@@ -103,15 +103,21 @@ NasdaqMarketTimeChecker 라는 클래스에 isMarketTime () 이라는 메서드�
 ```kotlin
 package io.testprj.kopring_webflux.solid
 
+import java.time.ZoneId
 import java.time.ZonedDateTime
 
 class NasdaqMarketTimeChecker {
 
-    fun isMarketTime(translated : ZonedDateTime) : Boolean {
-        return (translated.toLocalTime().minusSeconds(-5).isAfter(StockMarketTime.US.startTime)
-                && translated.toLocalTime().plusSeconds(5).isBefore(StockMarketTime.US.endTime))
+    fun isMarketTime(zonedDateTime : ZonedDateTime) : Boolean {
+        // 1) 전달된 주식데이터를 미국 현지 시각으로 변환
+        val translatedDateTime = zonedDateTime
+            .withZoneSameInstant(ZoneId.of("America/New_York"))
+            .toLocalDateTime()
+
+        // 2) 주식 데이터가 나스닥 시장 거래 시각에 속하는지 검사
+        return (translatedDateTime.toLocalTime().minusSeconds(-5).isAfter(StockMarketTime.US.startTime)
+                && translatedDateTime.toLocalTime().plusSeconds(5).isBefore(StockMarketTime.US.endTime))
     }
-    
 }
 ```
 
@@ -123,28 +129,22 @@ class NasdaqMarketTimeChecker {
 package io.testprj.kopring_webflux.solid
 
 import org.springframework.stereotype.Service
-import java.time.ZoneId
 
 @Service
 class StockService (
     val stockRepository: StockRepository,
     val marketTimeChecker: NasdaqMarketTimeChecker
 ){
-    
-    fun processSocketData1(currPrice: CurrPriceDto){
-        // 1) 전달된 주식데이터를 미국 현지 시각으로 변환
-        val translated = currPrice.tradeDateTimeInUTC()
-            .withZoneSameInstant(ZoneId.of("America/New_York"))
-            .toLocalDateTime()
 
-        // 2) 주식 데이터가 나스닥 시장 거래 시각에 속하는지 검사
-        if(marketTimeChecker.isMarketTime(currPrice.tradeDateTimeInUTC())){
-            stockRepository.save(currPrice)
-        }
-        else{
+    fun processSocketData1(currPrice: CurrPriceDto){
+        // 장중 시간이 아닐 경우 process 를 진행하지 않고 리턴
+        if(!marketTimeChecker.isMarketTime(currPrice.tradeDateTimeInUTC()))
             return
-        }
+        
+        // 장중 시간일 경우 데이터 저장
+        stockRepository.save(currPrice)
     }
+
 }
 ```
 
@@ -153,11 +153,13 @@ class StockService (
 구체적으로는 아래의 부분이 MarketTimeChecker 클래스의 isMarketTime(ZonedDateTime) 메서드를 사용하게끔 변경되었다.
 
 ```kotlin
-if(marketTimeChecker.isMarketTime(currPrice.tradeDateTimeInUTC())){
-    stockRepository.save(currPrice)
-}
-else{
+fun processSocketData1(currPrice: CurrPriceDto){
+    // 장중 시간이 아닐 경우 process 를 진행하지 않고 리턴
+    if(!marketTimeChecker.isMarketTime(currPrice.tradeDateTimeInUTC()))
     return
+
+    // 장중 시간일 경우 데이터 저장
+    stockRepository.save(currPrice)
 }
 ```
 
@@ -171,7 +173,30 @@ else{
 
 - 소프트웨어 요소는 확장에는 열려 있으나 변경에는 닫혀있어야 한다.
 
-ㅁㄴㅇㄻㄴㅇㄹ
+확장에는 열려있다.
+
+- 기존의 코드를 수정하지 않으면서 새로운 기능을 추가/변경 가능해야 한다.
+
+변경에는 닫혀있다.
+
+- 새로운 기능 추가/변경시 기존의 코드가 변경되지 않아야 한다.
+
+<br>
+
+이번에는 뜬금없지만, StockService가 미국주식이 아닌, 한국주식을 처리하기로 했다고 해보자. 그런데 현재 코드의 구조로는 StockService를 수정해야만 한국주식 장중시간 체크 로직을 추가할 수 있다.
+
+```kotlin
+```
+
+
+
+
+
+
+
+방금 추가한 NasdaqMarketTimeChecker 대신 장중/장전/장후 시간
+
+위에서 살펴본 NasdaqMarketTimeChecker를 보자. StockService 는 미국 주식의 장중 시간을 체크하는 대신 한국주식의 장중 시간을 체크하는 기능 역시 추가하기로 했다.<br>
 
 
 
