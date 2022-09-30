@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service
 @Service
 class StockService (
     val stockRepository: StockRepository,
-    val marketTimeChecker: NasdaqMarketTimeChecker
+    //***
+    // 아래 부분이 문제다. 부분을 KoreaMarketTimeChecker 를 사용하게끔 바꿔줘야 하게 되었다.
+    val marketTimeChecker: MarketTimeChecker,
 ){
 
     fun processSocketData1(currPrice: CurrPriceDto){

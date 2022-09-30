@@ -3,9 +3,9 @@ package io.testprj.kopring_webflux.solid
 import java.time.ZoneId
 import java.time.ZonedDateTime
 
-class NasdaqMarketTimeChecker {
+class NasdaqMarketTimeChecker : MarketTimeChecker{
 
-    fun isMarketTime(zonedDateTime : ZonedDateTime) : Boolean {
+    override fun isMarketTime(zonedDateTime : ZonedDateTime) : Boolean {
         // 1) 전달된 주식데이터를 미국 현지 시각으로 변환
         val translatedDateTime = zonedDateTime
             .withZoneSameInstant(ZoneId.of("America/New_York"))

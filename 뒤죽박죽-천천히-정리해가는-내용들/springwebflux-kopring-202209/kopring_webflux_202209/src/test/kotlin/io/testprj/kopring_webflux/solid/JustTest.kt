@@ -23,5 +23,12 @@ class JustTest {
         val translatedDt = zonedDateTime.withZoneSameInstant(ZoneId.of("America/New_York"))
             .toLocalDateTime()
         println("translatedDt >>> $translatedDt")
+
+
+        val krSampleTime = ZonedDateTime.of(LocalDate.now(), LocalTime.of(9,0,1), ZoneId.of("Asia/Seoul"))
+        println("krSampleTime >>> $krSampleTime")
+        val translatedDtKr = krSampleTime.withZoneSameInstant(ZoneId.of("Etc/UTC")).toLocalDateTime()
+
+        println("krSampleTime(utc) >>> $translatedDtKr")
     }
 }
