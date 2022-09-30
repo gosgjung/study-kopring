@@ -345,9 +345,80 @@ fun `개방 폐쇄 원칙`(){
 
 # LSP (Liskov Substitution Principle)
 
+- 하위타입은 상위타입을 대체할 수 있어야 한다.
 
+상위타입이 하위 타입을 대체해도 차이점이 인지되지 않으면서, 상위타입의 public 인터페이스를 통해 서브 클래스를 사용할 수 있어야 한다.<br>
 
+<br>
 
+**Person.kt**<br>
+
+- 코틀린에서는 하위타입이 상속을 할 수 있게끔 할때는 `open` 이라는 키워드를 꼭 `class` 키워드 앞에 붙여야 한다.
+
+```kotlin
+package io.testprj.kopring_webflux.solid
+
+open class Person (
+    val name : String,
+    val age : Int,
+){
+    fun letMeIntroduce(person : Person){
+        println("안녕하세요. 저는 ${person.name} 이구요. 나이는 ${person.age}세 입니다~")
+    }
+}
+```
+
+<br>
+
+**SoccerPlayer.kt**<br>
+
+- 코틀린에서 상속을 할 때는 상속을 받으려는 클래스의 생성자를 `:` 뒤에 붙여서 선언한다.
+
+```kotlin
+package io.testprj.kopring_webflux.solid
+
+import java.math.BigDecimal
+
+class SoccerPlayer (
+    name: String,
+    age: Int,
+    salary : BigDecimal,
+    teamName : String,
+) : Person (name = name, age = age){
+}
+```
+
+<br>
+
+이렇게 상속구조로 해놓은 것을 기반으로 아래와 같이 `Person` 이라는 타입으로 `SoccerPlayer` 타입도 받아서 처리할 수 있는 printName(Person p) 라는 메서드에서도 의도한 대로 동작한다면 이것을 리스코프 원칙을 만족한다고 이야기할 수 있다<br>
+
+```kotlin
+fun printName(person : Person){
+    person.letMeIntroduce(person)
+}
+
+@Test
+fun `리스코프 치환 원칙`(){
+    val p1 : Person = SoccerPlayer(
+        name = "차범근",
+        age = 69,
+        salary = BigDecimal.valueOf(10000000000),
+        teamName = "SBS"
+    )
+
+    printName(p1)
+}
+```
+
+<br>
+
+출력결과
+
+```plain
+안녕하세요. 저는 차범근 이구요. 나이는 69세 입니다~
+```
+
+<br>
 
 # ISP (Interface Segregation Principle)
 

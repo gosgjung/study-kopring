@@ -34,4 +34,22 @@ class SolidTest {
 
         stockService.processSocketData1(currData)
     }
+
+
+    @Test
+    fun `리스코프 치환 원칙`(){
+        val p1 : Person = SoccerPlayer(
+            name = "차범근",
+            age = 69,
+            salary = BigDecimal.valueOf(10000000000),
+            teamName = "SBS"
+        )
+
+        printName(p1)
+    }
+
+    fun printName(person : Person){
+        person.letMeIntroduce(person)
+    }
+
 }
