@@ -183,24 +183,165 @@ fun processSocketData1(currPrice: CurrPriceDto){
 
 <br>
 
-이번에는 뜬금없지만, StockService가 미국주식이 아닌, 한국주식을 처리하기로 했다고 해보자. 그런데 현재 코드의 구조로는 StockService를 수정해야만 한국주식 장중시간 체크 로직을 추가할 수 있다.
+이번에는 뜬금없지만, StockService가 미국주식이 아닌, 한국주식을 처리하기로 했다고 해보자. 그런데 현재 코드의 구조로는 StockService를 수정해야만 한국주식 장중시간 체크 로직을 추가할 수 있다.<br>
+
+변경되어야하는 문제의 부분을 `//***` 으로 표시해뒀다.
 
 ```kotlin
+package io.testprj.kopring_webflux.solid
+
+import org.springframework.stereotype.Service
+
+@Service
+class StockService (
+    val stockRepository: StockRepository,
+    //***  
+    // 아래 부분이 문제다. 부분을 KoreaMarketTimeChecker 를 사용하게끔 바꿔줘야 하게 되었다.
+    val marketTimeChecker: NasdaqMarketTimeChecker,
+){
+
+    fun processSocketData1(currPrice: CurrPriceDto){
+        // 장중 시간이 아닐 경우 process 를 진행하지 않고 리턴
+        if(!marketTimeChecker.isMarketTime(currPrice.tradeDateTimeInUTC()))
+            return
+
+        // 장중 시간일 경우 데이터 저장
+        stockRepository.save(currPrice)
+    }
+
+}
 ```
 
+<br>
 
+이제 이런 상황에서, isMarketTime() 이라는 메서드를 갖는 MarketTimeChecker 라는 인터페이스를 정의하고, 이 인터페이스를 NasdaqMarketTimeChecker, KrStockMarketTimeChecker 클래스가 implement 하게끔 하기로 했다고 해보자.<br>
 
+<br>
 
+**MarketTimeChecker.kt**<br>
 
+아래는 MarketTimeChecker 라는 이름의 인터페이스이고, isMarketTime() 이라는 메서드를 가지게끔 선언했다.
 
+```kotlin
+package io.testprj.kopring_webflux.solid
 
-방금 추가한 NasdaqMarketTimeChecker 대신 장중/장전/장후 시간
+import java.time.ZonedDateTime
 
-위에서 살펴본 NasdaqMarketTimeChecker를 보자. StockService 는 미국 주식의 장중 시간을 체크하는 대신 한국주식의 장중 시간을 체크하는 기능 역시 추가하기로 했다.<br>
+interface MarketTimeChecker {
+    
+    fun isMarketTime(zonedDateTime : ZonedDateTime) : Boolean
+    
+}
+```
 
+<br>
 
+**NasdaqMarketTimeChecker.kt**<br>
 
+NasdaqMarketTimeChecker 는 MarketTimeChecker 를 implements 하도록 해주었다.<br>
 
+> 코틀린에서는 `@Override` 와 같이 표현하지 않고 `override` 라는 키워드를 사용한다.
+
+<br>
+
+```kotlin
+package io.testprj.kopring_webflux.solid
+
+import java.time.ZoneId
+import java.time.ZonedDateTime
+
+class NasdaqMarketTimeChecker : MarketTimeChecker{
+
+    override fun isMarketTime(zonedDateTime : ZonedDateTime) : Boolean {
+        // 1) 전달된 주식데이터를 미국 현지 시각으로 변환
+        val translatedDateTime = zonedDateTime
+            .withZoneSameInstant(ZoneId.of("America/New_York"))
+            .toLocalDateTime()
+
+        // 2) 주식 데이터가 나스닥 시장 거래 시각에 속하는지 검사
+        return (translatedDateTime.toLocalTime().minusSeconds(-5).isAfter(StockMarketTime.US.startTime)
+                && translatedDateTime.toLocalTime().plusSeconds(5).isBefore(StockMarketTime.US.endTime))
+    }
+}
+```
+
+<br>
+
+그리고 새로 추가할 기능인 KrStockMarketTimeChecker 클래스 역시도 정의해주자.
+
+```kotlin
+package io.testprj.kopring_webflux.solid
+
+import java.time.ZoneId
+import java.time.ZonedDateTime
+
+class KrStockMarketTimeChecker : MarketTimeChecker{
+    // 1) 전달된 주식데이터를 한국 현지 시각으로 변환
+    override fun isMarketTime(zonedDateTime: ZonedDateTime): Boolean {
+        val translatedDateTime = zonedDateTime
+            .withZoneSameInstant(ZoneId.of("Asia/Seoul"))
+            .toLocalDateTime()
+
+        return (translatedDateTime.toLocalTime().isAfter(StockMarketTime.KR.startTime)
+                && translatedDateTime.toLocalTime().isBefore(StockMarketTime.KR.endTime))
+    }
+}
+```
+
+<br>
+
+**StockService.kt**<br>
+
+StockService 에서는 이전에는 NasdaqMarketTimeChecker 타입을 의존성으로 가지고 있는 것을 이것의 타입을 
+
+interface 타입인 MarketTimeChecker 로 수정해주자.<br>
+
+```kotlin
+package io.testprj.kopring_webflux.solid
+
+import org.springframework.stereotype.Service
+
+@Service
+class StockService (
+    val stockRepository: StockRepository,
+    //***
+    // 이 부분을 수정해줬다.
+    val marketTimeChecker: MarketTimeChecker,
+){
+
+    fun processSocketData1(currPrice: CurrPriceDto){
+        // 장중 시간이 아닐 경우 process 를 진행하지 않고 리턴
+        if(!marketTimeChecker.isMarketTime(currPrice.tradeDateTimeInUTC()))
+            return
+
+        // 장중 시간일 경우 데이터 저장
+        stockRepository.save(currPrice)
+    }
+
+}
+```
+
+<br>
+
+위의 코드는 아래와 같이 사용할 수 있게 된다.
+
+```kotlin
+@Test
+fun `개방 폐쇄 원칙`(){
+    val stockService = StockService(StockRepository(), KrStockMarketTimeChecker())
+
+    val currData = CurrPriceDto(
+        currPrice = BigDecimal.valueOf(100500),
+        ticker = "삼성전자",
+        tradeDate = LocalDate.of(2022, 9, 30),
+        tradeTime = LocalTime.of(0,0,1) // UTC 기준 한국 시장 개장시각
+    )
+
+    stockService.processSocketData1(currData)
+}
+```
+
+<br>
 
 # LSP (Liskov Substitution Principle)
 
