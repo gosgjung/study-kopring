@@ -422,13 +422,41 @@ fun `리스코프 치환 원칙`(){
 
 # ISP (Interface Segregation Principle)
 
+> 인터페이스 분리 원칙
 
+- 특정 클라이언트를 위한 인터페이스 여러 개가 범용 인터페이스 하나보다 낫다.
 
+기능 별로 필요한 인터페이스를 분리한 후에 여러개의 인터페이스를 implements 하도록 하면 유용하다.
 
+```kotlin
+class SoccerPlayer (
+    name: String,
+    age: Int,
+    salary : BigDecimal,
+    teamName : String,
+) : Person (name = name, age = age) , Interviewable, RetireBehavior{
+    override fun interviewing(msg: String) {
+        println("인터뷰 내용 >>> $msg")
+    }
+
+    override fun retire() {
+        println("retire... ")
+    }
+}
+```
+
+<br>
 
 # DIP (Dependency Inversion Principle)
 
+> 의존관계 역전 원칙
 
+- 프로그래머는 "추상화에 의존해야지, 구체화에 의존하면 안된다" (로버트 마틴, Design Principles and Design Patterns)
+- 의존성 주입은 이 원칙을 따르는 방법 중 하나다.
+
+흐흐... 예제는 생략 ㅋㅋ
+
+<br>
 
 
 

@@ -7,5 +7,12 @@ class SoccerPlayer (
     age: Int,
     salary : BigDecimal,
     teamName : String,
-) : Person (name = name, age = age){
+) : Person (name = name, age = age) , Interviewable, RetireBehavior{
+    override fun interviewing(msg: String) {
+        println("인터뷰 내용 >>> $msg")
+    }
+
+    override fun retire() {
+        println("retire... ")
+    }
 }
