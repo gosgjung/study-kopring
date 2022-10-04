@@ -1,8 +1,5 @@
 package io.testprj.kopring_webflux.solid
 
-import org.springframework.stereotype.Service
-
-@Service
 class StockService (
     val stockRepository: StockRepository,
     //***
