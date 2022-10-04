@@ -3,17 +3,14 @@ package io.testprj.kopring_webflux.book.entity
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
-import java.math.BigDecimal
 
-@Table("book")
-data class Book (
+@Table("book_category")
+data class BookCategory (
     @Id
-    val id : String,
+    val code : String,
     @Column
     val name : String,
-    @Column
-    val price : BigDecimal,
-    @Column
-    val detail : String
+    @Column("label_kr")
+    val labelKr : String
 ){
 }
