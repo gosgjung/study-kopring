@@ -14,9 +14,13 @@ class BookEntityTemplate (
     val connectionFactory: ConnectionFactory,
     val r2dbcEntityTemplate: R2dbcEntityTemplate = R2dbcEntityTemplate(connectionFactory)
 ){
-    fun findAll(id : Long) : Mono<Book> {
+    fun insert(book: Book) : Mono<Book>{
+        return r2dbcEntityTemplate.insert(book)
+    }
+
+    fun findAll(id : String) : Mono<Book> {
         return r2dbcEntityTemplate.select(Book::class.java)
-            .matching(Query.query(where("id").`is`(1))).one()
+            .matching(Query.query(where("id").`is`(id))).one()
     }
 
     fun dropBookTable(): Mono<Int> {
@@ -31,7 +35,7 @@ class BookEntityTemplate (
 
     fun createBookTable() : Mono<Int>{
         val builder = StringBuilder()
-        builder.append("create table testprj.book ")
+        builder.append("create table collector.book ")
         builder.append("( ")
         builder.append("    book_id    bigint auto_increment ")
         builder.append("        primary key, ")
@@ -47,5 +51,13 @@ class BookEntityTemplate (
             .rowsUpdated()
     }
 
+    fun deleteAll(): Mono<Int> {
+        val builder = StringBuilder()
+        builder.append("truncate table collector.book")
 
+        return r2dbcEntityTemplate.databaseClient
+            .sql(builder.toString())
+            .fetch()
+            .rowsUpdated()
+    }
 }

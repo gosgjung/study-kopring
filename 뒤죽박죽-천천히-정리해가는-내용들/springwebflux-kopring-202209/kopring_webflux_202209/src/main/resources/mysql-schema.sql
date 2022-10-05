@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS book
         primary key,
     name   varchar(60) null,
     price  bigint      null,
-    detail text        null
+    detail text        null,
+    author_name varchar(50) null
 );
-
 
 CREATE TABLE IF NOT EXISTS book_category
 (
