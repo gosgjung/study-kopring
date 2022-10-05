@@ -11,6 +11,8 @@ data class Book (
     val id : String,
     @Column
     val name : String,
+    @Column("author_name")
+    val authorName : String,
     @Column
     val price : BigDecimal,
     @Column
