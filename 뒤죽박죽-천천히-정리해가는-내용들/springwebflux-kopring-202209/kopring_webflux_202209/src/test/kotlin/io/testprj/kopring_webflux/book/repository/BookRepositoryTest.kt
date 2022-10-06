@@ -11,6 +11,7 @@ import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import reactor.core.publisher.Mono
 import reactor.core.scheduler.Schedulers
@@ -66,6 +67,38 @@ class BookRepositoryTest {
     }
 
     @Test
+    fun `INSERT TEST = 키가 중복일 경우`(){
+        val stoplessChallenge = "멈추지 않는 도전###박지성###2022-10-05T12:21:00:000.+0000"
+
+        Mockito.`when`(bookIdService.nextBookId(ArgumentMatchers.anyString(), ArgumentMatchers.anyString()))
+            .thenReturn(stoplessChallenge)
+            .thenReturn(stoplessChallenge)
+
+        val create1 = bookEntityTemplate.insert(
+            Book(
+                id = bookIdService.nextBookId(authorName = "박지성", bookName = "멈추지 않는 도전"),
+                name = "멈추지 않는 도전",
+                authorName = "박지성",
+                price = BigDecimal.valueOf(13500),
+                detail = "자서전"
+            )
+        ).flatMap {
+            val b1 = Book(
+                id = bookIdService.nextBookId(authorName = "박지성", bookName = "멈추지 않는 도전"),
+                name = "멈추지 않는 도전",
+                authorName = "박지성",
+                price = BigDecimal.valueOf(13500),
+                detail = "자서전"
+            )
+            bookEntityTemplate.insert(b1)
+        }
+
+        StepVerifier.create(create1)
+            .expectError(DataIntegrityViolationException::class.java)
+            .verify()
+    }
+
+    @Test
     fun `UPDATE TEST`(){
         val insertName : String = "박지성"
         val givenKey = "멈추지 않는 도전###박지성###2022-10-05T12:21:00:000.+0000"
@@ -98,7 +131,7 @@ class BookRepositoryTest {
     }
 
     @Test
-    fun `FIND BY ID TEST`(){
+    fun `FIND BY ID TEST = 정상적인 경우`(){
         val insertName : String = "박지성"
         val bookName : String = "멈추지 않는 도전"
         val givenKey = "멈추지 않는 도전###박지성###2022-10-05T12:21:00:000.+0000"

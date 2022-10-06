@@ -4,11 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a07345ee-75b1-4df8-9982-58b9201aaefd" name="Changes" comment="커밋 안되있던것 커밋">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/external/csv/us_stocks.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a07345ee-75b1-4df8-9982-58b9201aaefd" name="Changes" comment="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛...">
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/api/BooksApiController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookDeleteRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookFindResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookModifyRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookModifyResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookRegisterRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookRegisterResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BooksSearchRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BooksSearchResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/code/ResultCode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/books.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/booksapicontroller/PostBooksSearchTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/DeleteBookTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/FindByIdTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/ModifyBookTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/RegisterBookTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/testconfig/TestR2DBCConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/api/BookApiController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/api/BookApiController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/application/BookService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/application/BookService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/code/BookErrorCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/code/BookErrorCode.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/config/GlobalExceptionHandlerConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/config/GlobalExceptionHandlerConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/code/ErrorCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/code/ErrorCode.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/exception/ServerException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/exception/ServerException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/book.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/book.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/repository/BookRepositoryTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/repository/BookRepositoryTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +48,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Script" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -46,10 +70,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Kotlin.Data_class_try1Kt">
+  <component name="RunManager" selected="Kotlin.StudyAdvancedException01Kt">
     <configuration name="Collections_try1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Collections_try1Kt" />
       <module name="plain_gradle_kotlin_2022.main" />
@@ -64,8 +89,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StudyAdvancedException01Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exception.StudyAdvancedException01Kt" />
+      <module name="plain_gradle_kotlin_2022.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.StudyAdvancedException01Kt" />
         <item itemvalue="Kotlin.Data_class_try1Kt" />
         <item itemvalue="Kotlin.Collections_try1Kt" />
       </list>
@@ -86,6 +119,8 @@
       <workItem from="1663200568280" duration="2803000" />
       <workItem from="1663276358165" duration="305000" />
       <workItem from="1663656247952" duration="1540000" />
+      <workItem from="1664945692748" duration="823000" />
+      <workItem from="1664985614666" duration="3223000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1662729476260</created>
@@ -122,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662730339547</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛...">
+      <created>1664988686086</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664988686086</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +185,7 @@
     <MESSAGE value="코틀린 스터디 #1&#10;= 코틀린의 컬렉션 공부&#10;= 아직 예제만 받아적었다. 몇일 내로 문서로 따로 정리해둬야 한다. 잠을 줄일까?" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="커밋 안되있던것 커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="커밋 안되있던것 커밋" />
+    <MESSAGE value="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛..." />
+    <option name="LAST_COMMIT_MESSAGE" value="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛..." />
   </component>
 </project>

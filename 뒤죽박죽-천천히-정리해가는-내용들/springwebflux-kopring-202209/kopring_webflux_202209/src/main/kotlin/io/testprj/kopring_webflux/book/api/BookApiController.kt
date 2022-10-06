@@ -1,29 +1,40 @@
 package io.testprj.kopring_webflux.book.api
 
-import io.testprj.kopring_webflux.book.application.BookNameChecker
-import io.testprj.kopring_webflux.global.response.ApiResponse
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import io.testprj.kopring_webflux.book.application.BookService
+import io.testprj.kopring_webflux.book.dto.BookFindResponse
+import io.testprj.kopring_webflux.book.dto.BookModifyRequest
+import io.testprj.kopring_webflux.book.dto.BookRegisterRequest
+import io.testprj.kopring_webflux.book.dto.BookResponse
+import io.testprj.kopring_webflux.global.exception.EmptyBookIdException
+import org.springframework.util.StringUtils
+import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Mono
 
 @RestController
 @RequestMapping("book")
 class BookApiController (
-    val bookNameChecker: BookNameChecker
+    val bookService: BookService
 ){
-
-    @GetMapping("/test")
-    fun getTest() : String{
-        return "안녕하세요"
-    }
-
     @GetMapping("")
-    fun getBookName(@RequestParam(defaultValue = "") name: String) : ApiResponse<Boolean> {
-        return ApiResponse(
-            message = "정상요청입니다",
-            body = bookNameChecker.checkIfBook(name),
-            description = "설명..."
-        )
+    fun getBook(@RequestParam(defaultValue = "") id: String) : Mono<BookResponse<BookFindResponse>> {
+        if(!StringUtils.hasText(id)) throw EmptyBookIdException()
+        return bookService.findById(id)
     }
+
+    @PostMapping("")
+    fun postBook(@RequestBody(required = true) bookRequest: BookRegisterRequest){
+        bookService.registerBook(bookRequest)
+    }
+
+    @PutMapping("")
+    fun putBook(@RequestBody bookRequest: BookModifyRequest){
+        bookService.modifyBook(bookRequest)
+    }
+
+    @DeleteMapping("")
+    fun deleteBook(@RequestParam(defaultValue = "") id: String){
+        if(!StringUtils.hasText(id)) throw EmptyBookIdException()
+        bookService.deleteBook(id)
+    }
+
 }

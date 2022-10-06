@@ -1,3 +1,3 @@
 # /book?name={name} 테스트
-GET http://localhost:8080/book?name=보라빛향기
+GET http://localhost:8080/book?id='멈추지 않는 도전###박지성###2022-10-05T12:21:00:000.+0000'
 Content-Type: application/json

@@ -3,15 +3,10 @@ package io.testprj.kopring_webflux.config
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.testprj.kopring_webflux.global.exception.ErrorResponse
 import io.testprj.kopring_webflux.global.exception.ServerException
-import io.testprj.kopring_webflux.global.exception.ThatIsNotABookException
-import kotlinx.coroutines.reactor.awaitSingle
-import kotlinx.coroutines.reactor.mono
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.ExceptionHandler
-import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 import reactor.kotlin.core.publisher.toMono
