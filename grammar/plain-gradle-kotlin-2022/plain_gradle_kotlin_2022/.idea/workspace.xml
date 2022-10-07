@@ -4,35 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a07345ee-75b1-4df8-9982-58b9201aaefd" name="Changes" comment="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛...">
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/api/BooksApiController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookDeleteRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookFindResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookModifyRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookModifyResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookRegisterRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookRegisterResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BookResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BooksSearchRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/dto/BooksSearchResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/code/ResultCode.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/books.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/booksapicontroller/PostBooksSearchTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/DeleteBookTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/FindByIdTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/ModifyBookTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/application/bookservice/RegisterBookTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/testconfig/TestR2DBCConfig.kt" afterDir="false" />
+    <list default="true" id="a07345ee-75b1-4df8-9982-58b9201aaefd" name="Changes" comment="코틀린의 클래스, 생성자, 프로퍼티, backing property">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/api/BookApiController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/api/BookApiController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/application/BookService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/application/BookService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/code/BookErrorCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/book/code/BookErrorCode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/config/GlobalExceptionHandlerConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/config/GlobalExceptionHandlerConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/code/ErrorCode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/code/ErrorCode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/exception/ServerException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/main/kotlin/io/testprj/kopring_webflux/global/exception/ServerException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/book.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/api/book.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/repository/BookRepositoryTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../뒤죽박죽-천천히-정리해가는-내용들/springwebflux-kopring-202209/kopring_webflux_202209/src/test/kotlin/io/testprj/kopring_webflux/book/repository/BookRepositoryTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +23,7 @@
         <option value="Kotlin Script" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,23 +48,43 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Kotlin.StudyAdvancedException01Kt">
-    <configuration name="Collections_try1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Collections_try1Kt" />
+  <component name="RunManager" selected="Kotlin.Lambda_example1Kt">
+    <configuration name="JustTestRunnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lambda.JustTestRunnable" />
+      <module name="plain_gradle_kotlin_2022.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lambda.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Constructor_example1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="constructor.Constructor_example1Kt" />
       <module name="plain_gradle_kotlin_2022.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Data_class_try1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Data_class_try1Kt" />
+    <configuration name="Ifelse_whenKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ifelse.Ifelse_whenKt" />
       <module name="plain_gradle_kotlin_2022.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudyAdvancedException01Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exception.StudyAdvancedException01Kt" />
+    <configuration name="Lambda_example1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lambda.Lambda_example1Kt" />
+      <module name="plain_gradle_kotlin_2022.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Property_example1Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="property.Property_example1Kt" />
       <module name="plain_gradle_kotlin_2022.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,9 +92,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.StudyAdvancedException01Kt" />
-        <item itemvalue="Kotlin.Data_class_try1Kt" />
-        <item itemvalue="Kotlin.Collections_try1Kt" />
+        <item itemvalue="Kotlin.Lambda_example1Kt" />
+        <item itemvalue="Application.JustTestRunnable" />
+        <item itemvalue="Kotlin.Property_example1Kt" />
+        <item itemvalue="Kotlin.Constructor_example1Kt" />
+        <item itemvalue="Kotlin.Ifelse_whenKt" />
       </list>
     </recent_temporary>
   </component>
@@ -121,6 +117,9 @@
       <workItem from="1663656247952" duration="1540000" />
       <workItem from="1664945692748" duration="823000" />
       <workItem from="1664985614666" duration="3223000" />
+      <workItem from="1665059369134" duration="11835000" />
+      <workItem from="1665159199296" duration="5589000" />
+      <workItem from="1665168305960" duration="1121000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1662729476260</created>
@@ -164,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664988686086</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="코틀린의 클래스, 생성자, 프로퍼티, backing property">
+      <created>1665073680326</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665073680326</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +192,7 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="커밋 안되있던것 커밋" />
     <MESSAGE value="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛..." />
-    <option name="LAST_COMMIT_MESSAGE" value="고급 예외 runCatching 등에 대한 내용들 정리&#10;= 헛..." />
+    <MESSAGE value="코틀린의 클래스, 생성자, 프로퍼티, backing property" />
+    <option name="LAST_COMMIT_MESSAGE" value="코틀린의 클래스, 생성자, 프로퍼티, backing property" />
   </component>
 </project>
