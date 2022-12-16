@@ -2,6 +2,16 @@
 
 앞으로도 여러번 예제를 정리할 것 같다. 
 
+# 참고했던 자료들...
+
+https://www.baeldung.com/hamcrest-collections-arrays
+
+https://intojava.wordpress.com/2020/11/25/difference-between-flatmap-and-flatmapmany-in-webflux/
+
+<br>
+
+
+
 # Mono -> List\<T\>, Mono -> Flux\<T\>
 
 오늘은 Mono에서 `List<T>` 로 변환하는 경우와 `Flux<T>` 로 변환하는 경우에 대해 정리할 예정이다.<br>
