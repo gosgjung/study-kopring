@@ -1,4 +1,22 @@
 package io.study.gosgjung.reactive_redis.config
 
-class TestReactiveRedisConnectionFactory {
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
+import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
+
+//@Profile("test")
+//@Configuration
+class TestReactiveRedisConnectionFactory(
+    @Value("\${just-test.redis.host}")
+    val host: String,
+
+    @Value("\${just-test.redis.port}")
+    val port: Int
+) {
+
+    @Bean(name = ["reactiveRedisConnectionFactory"])
+    fun reactiveRedisConnectionFactory() : ReactiveRedisConnectionFactory {
+        return LettuceConnectionFactory(host, port)
+    }
 }
