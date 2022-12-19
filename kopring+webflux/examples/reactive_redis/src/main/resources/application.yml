@@ -1,0 +1,4 @@
+just-test:
+  redis:
+    host: localhost
+    port: 36379
