@@ -1,0 +1,30 @@
+version: '3'
+services:
+  redis-temp:
+    image: redis:7.0.2-alpine
+    command: redis-server --port 6379
+    #    container_name: redis-temp
+    hostname: redis-normal
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - 36379:6379
+    links:
+      - redis-commander-temp
+    networks:
+      - default
+      - network-test # network-test : mysql, redis, redis-commander, kopring-app 이 하나의 네트워크에서 동작하도록 하기 위해 구성한 network 중 하나
+  redis-commander-temp:
+    image: rediscommander/redis-commander:latest
+    #    container_name: redis-commander
+    hostname: redis-commander
+    restart: always
+    environment:
+      - REDIS_HOSTS=redis-normal
+    #      - REDIS_HOST=redis-normal:redis:16379
+    ports:
+      - 38081:8081
+networks:
+  network-test:
+    driver: bridge
