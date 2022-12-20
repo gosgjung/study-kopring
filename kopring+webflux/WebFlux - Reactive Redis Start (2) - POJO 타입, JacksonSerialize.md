@@ -9,9 +9,11 @@
 <br>
 
 - `POJO` 타입에서의 `BigDecimal` 타입 필드에 대한 Jackson Serialize
+  - 별도의 문서에 정리해둘 예정
 - 코틀린에서 `Jackson Serialize` 커스터마이징
   - 코틀린에서는 자바와는 다르게 어느 정도의 커스터마이징이 필요하다.
   - 기본 생성자를 강제로 사용할 수 있게끔 지정하거나 또는 KotlinModule 클래스 내부에 있는 Builder 클래스를 통해 KotlinModule 인스턴스를 생성해서 사용하는 방식이다.
+    - 별도의 문서([Kotlin 에서 Jackson Serialize, Deserialize 관련 문제](https://github.com/gosgjung/study-kopring/blob/main/Kotlin%20%EC%97%90%EC%84%9C%20Jackson%20Serialize%2C%20Deserialize%20%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%A0%9C.md))에 정리해두었다.
 - RedisTemplate 생성시 value 에대한 Serializer의 ObjectMapper 를 별도로 지정하기
   - `KotlinModule` 이 적용된 ObjectMapper를 RedisTemplate 의 ValueSerializer의 objectMapper로 지정해주는 작업이다.
 
