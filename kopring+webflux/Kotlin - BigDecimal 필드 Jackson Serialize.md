@@ -47,7 +47,7 @@ data class StockDto(
 
 <br>
 
-- `1)` : @JsonSerialize 애노테이션을 사용했다. 그리고 별도로 정의해둔 `BigDecimalRounding6Serializer` 라는 클래스를 사용해 Serialize/Deserialize 하도록 애노테이션을 지정했다.
+- `1)` : @JsonSerialize 애노테이션을 사용했다. 그리고 별도로 정의해둔 `BigDecimalRounding6Serializer` 라는 클래스를 사용해 `BigDecimal` 타입의 필드에 대해 Serialize/Deserialize 하도록 애노테이션을 지정했다.
 
 <br>
 
