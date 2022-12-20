@@ -92,7 +92,7 @@ class BigDecimalRounding6Serializer : JsonSerializer<BigDecimal>(){
 
 코틀린에서 작성한 Pojo 클래스에 ObjectMapper를 사용하기 위해 KotlinModule 객체를 생성하는 것에 대한 내용은 아래의 자료에 정리해두었다.
 
-- 
+- [Kotlin 에서 Jackson Serialize, Deserialize 관련 문제](https://github.com/gosgjung/study-kopring/blob/main/Kotlin%20%EC%97%90%EC%84%9C%20Jackson%20Serialize%2C%20Deserialize%20%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%A0%9C.md)
 
 <br>
 
