@@ -34,6 +34,7 @@ Querydsl 을 설정할 때에는 아래의 절차를 따른다.
 # 예제 링크
 
 - querydsl 을 적용하면서 변경된 설정 상의 변경내역 확인은 [여기](https://github.com/gosgjung/study-kopring/commit/c844fb9a5cdd446a26c50a9c1ce51258aec6496f)서 할 수 있다.
+- 2022.12.30) 예제 테스트 코드 들과 Config를 추가한 내용은 [여기](https://github.com/gosgjung/study-kopring/commit/28a65d05594536c50a895f46f3def154e217470d)에서 할수 있다.
 - 예제 디렉터리는 [여기](https://github.com/gosgjung/study-kopring/tree/main/kopring%2Bwebflux/examples/kopring-multimodule)에 있다.
 
 <br>
