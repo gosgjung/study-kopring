@@ -172,29 +172,33 @@ class SubtractingTest1 {
         // max = 180, copy 2 = [10,...,10] => 60
         // max = 60,  copy 3 = [10,...,10] => 0 (6 개월치만 소모)
 
-        var remain = max
+//        var remain = max
+//
+//        // 이 부분 어떻게 불변으로 바꿀수 있을까...
+//        while(remain > 0){
+//            remain = fetchApiResult()
+//                .toMutableList()
+//                .fold(Acc(myMoney = remain, usedMoney = 0, lastIndex = 0, tobeSum = 0))
+//                { acc, monthlyBill -> fnSubMonthlyBill(acc, monthlyBill) }.myMoney
+//        }
+//
+//        println(remain)
 
-        // 이 부분 어떻게 불변으로 바꿀수 있을까...
-        while(remain > 0){
-            remain = fetchApiResult()
+
+        fun yearlySubtract(remainNum : Int) : Acc {
+            return fetchApiResult()
                 .toMutableList()
-                .fold(Acc(myMoney = remain, usedMoney = 0, lastIndex = 0, tobeSum = 0))
-                { acc, monthlyBill -> fnSubMonthlyBill(acc, monthlyBill) }.myMoney
+                .fold(Acc(myMoney = remainNum, usedMoney = 0, lastIndex = 0, tobeSum = 0))
+                { acc, monthlyBill -> fnSubMonthlyBill(acc, monthlyBill) }
         }
 
-        println(remain)
+        var remain2 = max
 
-
-
-
-
-
-
-        val fpYearlyReducing : (limit: Int, (acc: Acc, monthlyBill: Int) -> Acc) -> Acc = {
-                limit, function -> fetchApiResult().toMutableList()
-            .fold(Acc(myMoney = max, usedMoney = 0, lastIndex = 0, tobeSum = 0))
-            {acc, monthlyBill -> function(acc, monthlyBill)}
+        while(remain2 > 0){
+            remain2 = yearlySubtract(remain2).myMoney
         }
+
+        // 이제 reduce 비스무리한 연산으로 바꿔보자...
     }
 
 }
