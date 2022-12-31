@@ -40,4 +40,11 @@ class LambdaTest1 {
         println("람다 2 호출 결과값 = ${plusFn2(1,2)}")
     }
 
+    /**
+     * 위의 예제가 도저히 뭔지 모르겠고 처음부터 다시 봐야겠다 싶으면 아래의 자료를 참고
+     * https://ddolcat.tistory.com/557
+     * https://thdev.tech/kotlin/2018/03/17/Kotlin-Lambdas/
+     * https://codechacha.com/ko/kotlin-lambda-expressions/
+     */
+
 }
