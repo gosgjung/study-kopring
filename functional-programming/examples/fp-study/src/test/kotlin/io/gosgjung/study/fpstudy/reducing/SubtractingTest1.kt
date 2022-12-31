@@ -54,8 +54,8 @@ class SubtractingTest1 {
     )
 
     @Test
-    @DisplayName("")
-    fun `현재 월세 통장의 잔액으로 월세를 몇월 치 월세까지 계산할 수 있을지 계산`(){
+    @DisplayName("현재 관리비 통장의 잔액으로 관리비를 몇월 치 관리비까지 계산할 수 있을지 계산")
+    fun `현재 관리비 통장의 잔액으로 관리비를 몇월 치 관리비까지 계산할 수 있을지 계산`(){
         // given
         // 관리비 통장 잔액
         val max = 78
@@ -108,6 +108,77 @@ class SubtractingTest1 {
 
         // 나중에 다시 돌아와서 봤을 때, 외계인이 풀라고 남겨둔 숙제처럼 느껴질 것 같아서 println 문을 추가..;;;
         println(result)
+    }
+
+    @Test
+    @DisplayName("현재 관리비 통장의 잔액이 1년 치 예상 관리비보다 넉넉하게 있을 경우 반복문을 통해 연산을 수행")
+    fun `현재 관리비 통장의 잔액이 1년 치 예상 관리비보다 넉넉하게 있을 경우 반복문을 통해 연산을 수행`(){
+        // given
+        // 관리비 통장 잔액
+        val max = 300
+        // 월별 관리비 예상 금액
+        //                  0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11
+        val list1 = listOf(10,10,10,10,10,10,10,10,10,10,10,10)
+
+        // when
+        val copy1 = list1.toMutableList()
+
+        val fnSubMonthlyBill : (acc: Acc, monthlyBill: Int) -> Acc = {
+            acc, monthlyBill ->
+                val tobeSum = acc.tobeSum + monthlyBill
+
+                if(acc.myMoney <= 0){
+                    Acc(
+                        myMoney = 0,
+                        usedMoney = acc.usedMoney,
+                        tobeSum = tobeSum,
+                        lastIndex = acc.lastIndex,
+                    )
+                }
+                else{
+                    println("current :: ${acc}")
+                    println("tobe : ${acc.myMoney - monthlyBill}, tobeIndex = ${acc.lastIndex+1}")
+
+                    if(acc.myMoney <= monthlyBill){ // e.g. myMoney = 8, monthlyBill = 10
+                        Acc(
+                            myMoney = 0,
+                            usedMoney = acc.usedMoney + acc.myMoney,
+                            tobeSum = tobeSum,
+                            lastIndex = acc.lastIndex+1,
+                        )
+                    }else{ // e.g. myMoney = 58, monthlyBill = 10
+                        Acc(
+                            myMoney = acc.myMoney - monthlyBill,
+                            usedMoney = acc.usedMoney + monthlyBill,
+                            tobeSum = tobeSum,
+                            lastIndex = acc.lastIndex+1
+                        )
+                    }
+
+                }
+        }
+
+        // 1) 1년치 관리비 리스트는 매번 새로 받아와야 한다.
+        //  => 1년치 관리비 리스트는 매 루프마다 toMutableList 로 새로운 리스트를 받아온다.
+
+        // 2) max 는 1년치 관리비 리스트의 합을 매 루프마다 순서대로 차감해야 한다.
+        // 3) 루프 한번은 1년이고, 합을 구하는 reduce 는 1개월씩의 관리비를 순차적으로 fold 한다.
+
+        // max = 300, copy 1 = [10,...,10] => 180
+        // max = 180, copy 2 = [10,...,10] => 60
+        // max = 60,  copy 3 = [10,...,10] => 0 (6 개월치만 소모)
+
+        val fpYearlyReducing : (limit: Int, list: List<Int>, (acc: Acc, monthlyBill: Int) -> Acc) -> Acc = {
+            limit, list, function ->
+                list.toMutableList()
+                    .fold(Acc(myMoney = max, usedMoney = 0, lastIndex = 0, tobeSum = 0))
+                    {acc, monthlyBill -> function(acc, monthlyBill)}
+        }
+
+        // 0 대신 매해 차감되는 년도별 총액이 들어가면 좋다...
+        while (fpYearlyReducing(max - 0, list1, fnSubMonthlyBill).myMoney >=0){
+            println("111")
+        }
     }
 
 }
