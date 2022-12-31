@@ -110,6 +110,10 @@ class SubtractingTest1 {
         println(result)
     }
 
+    fun fetchApiResult() : List<Int>{
+        return listOf(10,10,10,10,10,10,10,10,10,10,10,10)
+    }
+
     @Test
     @DisplayName("현재 관리비 통장의 잔액이 1년 치 예상 관리비보다 넉넉하게 있을 경우 반복문을 통해 연산을 수행")
     fun `현재 관리비 통장의 잔액이 1년 치 예상 관리비보다 넉넉하게 있을 경우 반복문을 통해 연산을 수행`(){
@@ -168,16 +172,28 @@ class SubtractingTest1 {
         // max = 180, copy 2 = [10,...,10] => 60
         // max = 60,  copy 3 = [10,...,10] => 0 (6 개월치만 소모)
 
-        val fpYearlyReducing : (limit: Int, list: List<Int>, (acc: Acc, monthlyBill: Int) -> Acc) -> Acc = {
-            limit, list, function ->
-                list.toMutableList()
-                    .fold(Acc(myMoney = max, usedMoney = 0, lastIndex = 0, tobeSum = 0))
-                    {acc, monthlyBill -> function(acc, monthlyBill)}
+        var remain = max
+
+        // 이 부분 어떻게 불변으로 바꿀수 있을까...
+        while(remain > 0){
+            remain = fetchApiResult()
+                .toMutableList()
+                .fold(Acc(myMoney = remain, usedMoney = 0, lastIndex = 0, tobeSum = 0))
+                { acc, monthlyBill -> fnSubMonthlyBill(acc, monthlyBill) }.myMoney
         }
 
-        // 0 대신 매해 차감되는 년도별 총액이 들어가면 좋다...
-        while (fpYearlyReducing(max - 0, list1, fnSubMonthlyBill).myMoney >=0){
-            println("111")
+        println(remain)
+
+
+
+
+
+
+
+        val fpYearlyReducing : (limit: Int, (acc: Acc, monthlyBill: Int) -> Acc) -> Acc = {
+                limit, function -> fetchApiResult().toMutableList()
+            .fold(Acc(myMoney = max, usedMoney = 0, lastIndex = 0, tobeSum = 0))
+            {acc, monthlyBill -> function(acc, monthlyBill)}
         }
     }
 
