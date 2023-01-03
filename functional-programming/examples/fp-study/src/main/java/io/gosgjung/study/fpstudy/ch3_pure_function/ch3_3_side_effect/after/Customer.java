@@ -10,6 +10,14 @@ public class Customer {
     public Boolean enabled = true;
     public Contract contract;
 
+    public String name = "";
+    public String address = "";
+    public String state = "";
+    public String primaryContact = "";
+    public String domain = "";
+
+    public Customer(){}
+
     public static ArrayList<Customer> filter(
             ArrayList<Customer> inList,
             Function1<Customer, Boolean> test){
@@ -59,6 +67,36 @@ public class Customer {
         for(Customer customer : inList){
             callee.call(customer);
         }
+    }
+
+    public Customer setCustomerId(Integer customer_id) {
+        this.id = customer_id;
+        return this;
+    }
+
+    public Customer setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Customer setState(String state) {
+        this.state = state;
+        return this;
+    }
+
+    public Customer setDomain(String domain) {
+        this.domain = domain;
+        return this;
+    }
+
+    public Customer setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+        return this;
+    }
+
+    public Customer setContract(Contract contract) {
+        this.contract = contract;
+        return this;
     }
     
 }
