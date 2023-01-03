@@ -7,6 +7,8 @@ public class Customer {
 
     static public ArrayList<Customer> allCustomers = new ArrayList<Customer>();
     public Integer id = 0;
+    public Boolean enabled = true;
+    public Contract contract;
 
     public static ArrayList<Customer> filter(
             ArrayList<Customer> inList,
