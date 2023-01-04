@@ -1,6 +1,7 @@
 package io.gosgjung.study.fpstudy.ch3_pure_function.ch3_3_side_effect.after;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class Contract {
     public Calendar begin_date;
@@ -29,11 +30,15 @@ public class Contract {
         return this;
     }
 
-    public static void setContractEnabledForCustomer(Integer customer_id) {
-        for(Customer customer : Customer.allCustomers) {
-            if(customer.id == customer_id) {
-                customer.contract.enabled = true;
-            }
-        }
+    public static List<Contract> setContractEnabledForCustomer(Integer customer_id, Boolean status) {
+        return Customer.mapInNewList(
+                Customer.getCustomerById(Customer.allCustomers, customer_id),
+                new Function1<Customer, Contract>() {
+                    @Override
+                    public Contract call(Customer customer) {
+                        return customer.contract.setEnabled(status);
+                    }
+                }
+        );
     }
 }

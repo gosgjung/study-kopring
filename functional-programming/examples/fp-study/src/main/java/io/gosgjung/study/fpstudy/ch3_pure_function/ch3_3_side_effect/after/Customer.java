@@ -18,6 +18,16 @@ public class Customer {
 
     public Customer(){}
 
+    public static <A1, B> List<B> mapInNewList(List<A1> inList, Function1<A1, B> func){
+        ArrayList<B> outList = new ArrayList<>();
+
+        for(A1 obj : inList){
+            outList.add(func.call(obj));
+        }
+
+        return outList;
+    }
+
     public static ArrayList<Customer> filter(
             ArrayList<Customer> inList,
             Function1<Customer, Boolean> test){
