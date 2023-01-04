@@ -1,4 +1,4 @@
-package io.gosgjung.study.kotlincoroutine.sachawon.ch01
+package io.gosgjung.study.kotlincoroutine.sachawon.ch03
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
