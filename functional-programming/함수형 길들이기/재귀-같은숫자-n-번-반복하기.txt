@@ -1,0 +1,16 @@
+
+
+private fun replicate(n: Int, element: Int): List<Int> = when {
+    n <= 0 -> listOf()
+    else -> listOf(element) + replicate(n - 1, element)
+}
+
+
+e.g. replicate(3, 5) => [5,5,5]
+
+(3,5) -> listOf(5) + replicate(3-1, 5)		// 1)	[5]		+	[5,5]	// [5,5] 	는 2) 에서 가져온 값
+(2,5) -> listOf(5) + replicate(2-1, 5)		// 2)	[5] 	+ 	[5] 	// [5] 		는 3) 에서 가져온 값  
+(1,5) -> listOf(5) + replicate(1-1, 5)		// 3)	[5] 	+ 	[]  	// []  		은 4) 에서 가져온 값
+(0,5) -> listOf()							// 4)	[]
+
+
